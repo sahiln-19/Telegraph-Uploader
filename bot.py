@@ -29,8 +29,8 @@ Tgraph = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Tgraph.on_message(filters.photo)
-async def uploadphoto(client, message):
+@Tgraph.on_message(filters.file)
+async def uploadfile(client, message):
   msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
