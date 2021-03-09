@@ -84,9 +84,7 @@ async def home(client, message):
         InlineKeyboardButton('Help', callback_data='help'),
         InlineKeyboardButton('Close', callback_data='close')
     ],
-    [
-  
-    ]]
+   ]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
@@ -108,9 +106,7 @@ async def help(client, message):
         InlineKeyboardButton('Home', callback_data='home'),
         InlineKeyboardButton('Close', callback_data='close')
     ],
-    [
-       
-    ]]
+   ]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
