@@ -39,14 +39,14 @@ async def uploadphoto(client, message):
   try:
     tlink = upload_file(img_path)
   except:
-    await msg.edit_text("`Something went wrong`") 
+    await msg.edit_text("`Something Went Wrong`") 
   else:
     await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
     os.remove(img_path) 
 
 @Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
-  if(message.animation.file_size < 5242880):
+  if(message.animation.file_size < 524288000):
     msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
@@ -57,13 +57,13 @@ async def uploadgif(client, message):
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
       os.remove(gif_path)   
     except:
-      await msg.edit_text("Something really Happend Wrong...") 
+      await msg.edit_text("Something Went Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Size Should Be Less Than 500 MB")
 
 @Tgraph.on_message(filters.video)
 async def uploadvid(client, message):
-  if(message.video.file_size < 5242880):
+  if(message.video.file_size < 524288000):
     msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
@@ -74,26 +74,30 @@ async def uploadvid(client, message):
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
       os.remove(vid_path)   
     except:
-      await msg.edit_text("Something really Happend Wrong...") 
+      await msg.edit_text("Something Went Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Size Should Be Less Than 500 MB")
 
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
   buttons = [[
         InlineKeyboardButton('Help', callback_data='help'),
         InlineKeyboardButton('Close', callback_data='close')
-  ],
+    ],
+    [
+        InlineKeyboardButton('Message Here', url='http://telegram.me/'),
+        InlineKeyboardButton('Source Code', url='Not Available')
+    ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
         text="""<b>Hey there,
         
-I am a Telegraph Uploader That Can Upload Photo, Video And Gif
+I am a Telegra.ph Uploader That Can Upload Photo, Video And Gif
         
 Simply send me photo, video or gif to upload to Telegra.ph
         
-
+Hi</b>""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -105,15 +109,17 @@ async def help(client, message):
         InlineKeyboardButton('Home', callback_data='home'),
         InlineKeyboardButton('Close', callback_data='close')
     ],
-   ]]
+    [
+        InlineKeyboardButton('Message Here', url='http://telegram.me/')
+    ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""There Is Nothung To KnowMore,
+        text="""There Is Nothing To Know More,
         
-Just Send Me A Video/gif/photo Upto 5mb.
+Just Send Me A Video/gif/photo Upto 500 MB.
 
-I'll upload it to Telegra.ph and give you the direct link""",
+I'll upload ut to Telegra.ph and give you the direct link""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
