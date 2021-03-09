@@ -85,19 +85,18 @@ async def home(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/indusbots'),
-        InlineKeyboardButton('Source Code', url='https://github.com/benchamxd/Telegraph-Uploader')
+  
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
         text="""<b>Hey there,
         
-im a telegraph Uploader That Can Upload Photo, Video And Gif
+I am a Telegraph Uploader That Can Upload Photo, Video And Gif
         
 Simply send me photo, video or gif to upload to Telegra.ph
         
-Made With Love By @indusBots</b>""",
+
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -110,7 +109,7 @@ async def help(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/indusbots')
+       
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
@@ -119,7 +118,7 @@ async def help(client, message):
         
 Just Send Me A Video/gif/photo Upto 5mb.
 
-i'll upload ut to telegra.ph and give you the direct link""",
+I'll upload it to Telegra.ph and give you the direct link""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
