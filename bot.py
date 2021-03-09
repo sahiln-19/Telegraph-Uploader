@@ -85,7 +85,7 @@ async def home(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Message Here', url='http://telegram.me/tgusergbot'),
+        InlineKeyboardButton('Message Here', url='http://telegram.me/'),
         InlineKeyboardButton('Source Code', url='www.google.com')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
@@ -110,7 +110,7 @@ async def help(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Message Here', url='http://telegram.me/tgusergbot')
+        InlineKeyboardButton('Message Here', url='http://telegram.me/')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
