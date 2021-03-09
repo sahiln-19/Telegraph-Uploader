@@ -44,7 +44,7 @@ async def uploadphoto(client, message):
     await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
     os.remove(img_path) 
 
- @Tgraph.on_message(filters.animation)
+@Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
   if(message.animation.file_size < 5242880):
     msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
