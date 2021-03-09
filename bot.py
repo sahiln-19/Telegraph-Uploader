@@ -46,7 +46,7 @@ async def uploadphoto(client, message):
 
 @Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
-  if(message.animation.file_size < 524288000):
+  if(message.animation.file_size < 5242880):
     msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
@@ -59,11 +59,11 @@ async def uploadgif(client, message):
     except:
       await msg.edit_text("Something Went Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 500 MB")
+    await message.reply_text("Size Should Be Less Than 5 MB")
 
 @Tgraph.on_message(filters.video)
 async def uploadvid(client, message):
-  if(message.video.file_size < 524288000):
+  if(message.video.file_size < 5242880):
     msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
@@ -76,7 +76,7 @@ async def uploadvid(client, message):
     except:
       await msg.edit_text("Something Went Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 500 MB")
+    await message.reply_text("Size Should Be Less Than 5 MB")
 
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
@@ -85,7 +85,7 @@ async def home(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Message Here', url='http://telegram.me/'),
+        InlineKeyboardButton('Message Here', url='http://telegram.me/tgusergbot'),
         InlineKeyboardButton('Source Code', url='Not Available')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
@@ -110,16 +110,16 @@ async def help(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Message Here', url='http://telegram.me/')
+        InlineKeyboardButton('Message Here', url='http://telegram.me/tgusergbot')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
         text="""There Is Nothing To Know More,
         
-Just Send Me A Video/gif/photo Upto 500 MB.
+Just Send Me A Video/gif/photo Upto 5 MB.
 
-I'll upload ut to Telegra.ph and give you the direct link""",
+I'll upload it to Telegra.ph and give you the direct link""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
